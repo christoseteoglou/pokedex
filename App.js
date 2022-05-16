@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import {textColor} from './src/assets/colors.js'
+
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
@@ -42,9 +44,9 @@ export default function App() {
     return (
       <SafeAreaView style = {{ flex:1 }}>
         <View /* style={styles.container}  */onLayout={onLayoutRootView}>
-            <Text> Pokèdex </Text>
+            <Text style = {{ color: textColor.black }} > Pokèdex </Text>
             <Text> Developed by: Christos & Carl </Text>
-            <StatusBar style="auto" />
+            <StatusBar hidden = {true} />
         </View>
         </SafeAreaView>
     );
