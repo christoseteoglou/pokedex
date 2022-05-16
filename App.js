@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import {textColor} from './src/assets/colors.js'
+import {textColor} from './assets/colors.js'
 
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
@@ -9,9 +9,9 @@ import * as Font from "expo-font";
 import { SafeAreaView } from "react-native";
 
 const customFonts = {
-    "SFProDisplay-Bold": require("./src/assets/fonts/SFProDisplay-Bold.otf"),
-    "SFProDisplay-Medium": require("./src/assets/fonts/SFProDisplay-Medium.otf"),
-    "SFProDisplay-Regular": require("./src/assets/fonts/SFProDisplay-Regular.otf"),
+    "SFProDisplay-Bold": require("./assets/fonts/SFProDisplay-Bold.otf"),
+    "SFProDisplay-Medium": require("./assets/fonts/SFProDisplay-Medium.otf"),
+    "SFProDisplay-Regular": require("./assets/fonts/SFProDisplay-Regular.otf"),
 };
 
 export default function App() {
