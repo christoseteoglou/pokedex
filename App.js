@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
+import { SafeAreaView } from "react-native";
 
 const customFonts = {
     "SFProDisplay-Bold": require("./src/assets/fonts/SFProDisplay-Bold.otf"),
@@ -39,21 +40,20 @@ export default function App() {
     }
 
     return (
-        <View style={styles.container} onLayout={onLayoutRootView}>
-            <Text style={styles.text}>
-                Open up App.js to start working on your app!
-            </Text>
+      <SafeAreaView style = {{ flex:1 }}>
+        <View /* style={styles.container}  */onLayout={onLayoutRootView}>
+            <Text> Pokèdex </Text>
+            <Text> Developed by: Christos & Carl </Text>
             <StatusBar style="auto" />
         </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
+        backgroundColor: "#fff"
     },
     text: {
         fontFamily: "SFProDisplay-Bold",
