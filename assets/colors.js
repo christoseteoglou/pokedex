@@ -36,7 +36,7 @@ const textColor = {
     white: '#FFFFFF',
     black: '#17171B',
     grey: '#747476',
-    number: '#17171B .6'
+    number: '#17171B.6'
 }
 
 export {colors, backgroundColors, textColor}

@@ -8,6 +8,8 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import { SafeAreaView } from "react-native";
 
+import HomeScreen from "./src/screens/HomeScreen.js";
+
 const customFonts = {
     "SFProDisplay-Bold": require("./assets/fonts/SFProDisplay-Bold.otf"),
     "SFProDisplay-Medium": require("./assets/fonts/SFProDisplay-Medium.otf"),
@@ -43,10 +45,11 @@ export default function App() {
 
     return (
       <SafeAreaView style = {{ flex:1 }}>
-        <View /* style={styles.container}  */onLayout={onLayoutRootView}>
-            <Text style = {{ color: textColor.black }} > Pokèdex </Text>
-            <Text> Developed by: Christos & Carl </Text>
-            <StatusBar hidden = {true} />
+        <View onLayout={onLayoutRootView}>
+          <HomeScreen />
+            {/* <Text style = {{ color: textColor.black }} > Pokèdex </Text>
+            <Text> Developed by: Christos & Carl </Text> */}
+            <StatusBar style="auto" />
         </View>
         </SafeAreaView>
     );
