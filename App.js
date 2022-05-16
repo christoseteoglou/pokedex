@@ -6,9 +6,9 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 
 const customFonts = {
-    "SFProDisplay-Bold": require("./assets/fonts/SFProDisplay-Bold.otf"),
-    "SFProDisplay-Medium": require("./assets/fonts/SFProDisplay-Medium.otf"),
-    "SFProDisplay-Regular": require("./assets/fonts/SFProDisplay-Regular.otf"),
+    "SFProDisplay-Bold": require("./src/assets/fonts/SFProDisplay-Bold.otf"),
+    "SFProDisplay-Medium": require("./src/assets/fonts/SFProDisplay-Medium.otf"),
+    "SFProDisplay-Regular": require("./src/assets/fonts/SFProDisplay-Regular.otf"),
 };
 
 export default function App() {
