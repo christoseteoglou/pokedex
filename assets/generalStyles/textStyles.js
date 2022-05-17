@@ -9,6 +9,17 @@ export {
     pokemonType,
 };
 
+/* 
+-- How to import in working file for readability --
+import * as textStyles from "[Path to this file]"
+
+-- How to use in working file --
+<Text style={ textStyles.pokemonName }>Here is a text</Text>
+
+-- How to change color or add styles with obj spread syntax --
+<Text style={{ ...textStyles.pokemonName, color: "new color" }}>Here is a text</Text>
+*/
+
 const fontFamilyInBold = "SFProDisplay-Bold";
 const fontFamilyInRegular = "SFProDisplay-Regular";
 const fontFamilyInMedium = "SFProDisplay-Medium";
