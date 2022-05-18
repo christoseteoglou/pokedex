@@ -7,6 +7,7 @@ import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import { SafeAreaView } from "react-native";
+import Badges from "./src/components/Badges.jsx";
 
 const customFonts = {
     "SFProDisplay-Bold": require("./assets/fonts/SFProDisplay-Bold.otf"),
@@ -47,6 +48,7 @@ export default function App() {
                 <Text style={{ color: textColor.black }}> Pokèdex </Text>
                 <Text> Developed by: Christos & Carl </Text>
                 <StatusBar hidden={true} />
+                <Badges />
             </View>
         </SafeAreaView>
     );
