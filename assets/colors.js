@@ -36,11 +36,11 @@ const textColor = {
     white: "#FFFFFF",
     black: "#17171B",
     grey: "#747476",
-    number: "#17171B, 6",
+    number: "#17171B",
 };
 
 const customColor = {
-    input: "#F2F2F2, 10",
+    input: "#F2F2F2",
 };
 
 export { colors, backgroundColors, textColor, customColor };
