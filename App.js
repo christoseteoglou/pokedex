@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import {textColor} from './assets/colors.js'
+import { textColor } from "./assets/colors.js";
 
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
@@ -45,22 +45,22 @@ export default function App() {
 
     return (
         <>
-      {/* <SafeAreaView style = {{ flex:1 }}> */}
-        <View onLayout={onLayoutRootView}>
-          <HomeScreen />
-            {/* <Text style = {{ color: textColor.black }} > Pokèdex </Text>
+            {/* <SafeAreaView style = {{ flex:1 }}> */}
+            <View onLayout={onLayoutRootView}>
+                <HomeScreen />
+                {/* <Text style = {{ color: textColor.black }} > Pokèdex </Text>
             <Text> Developed by: Christos & Carl </Text> */}
-            <StatusBar style="auto" />
-        </View>
-    </>
-       /*  </SafeAreaView> */
+                <StatusBar style="auto" />
+            </View>
+        </>
+        /*  </SafeAreaView> */
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
     },
     text: {
         fontFamily: "SFProDisplay-Bold",
