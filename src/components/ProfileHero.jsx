@@ -4,9 +4,10 @@ import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
 //Styles
 import * as textStyles from "../../assets/generalStyles/textStyles";
 import { textColor, colors } from "../../assets/colors";
+import commonStyles from "../styles/commonStyles";
 
 //Components
-import Badges from "./Badges";
+import Tag from "./Tag";
 
 const ProfileHero = () => {
     const pokemonImage = {
@@ -37,9 +38,9 @@ const ProfileHero = () => {
                 >
                     Bulbasaur
                 </Text>
-                <View style={{ flexDirection: "row" }}>
-                    <Badges />
-                    <Badges />
+                <View style={commonStyles.row}>
+                    <Tag type="grass" />
+                    <Tag type="poison" />
                 </View>
             </View>
         </View>
