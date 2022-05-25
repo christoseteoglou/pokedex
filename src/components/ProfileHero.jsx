@@ -12,9 +12,13 @@ const ProfileHero = () => {
     const pokemonImage = {
         uri: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
     };
+
+    const backgroundImage = require("../../assets/images/circleFade.png");
     return (
         <View style={{ ...styles.wrapper }}>
-            <Image style={styles.image} source={pokemonImage} />
+            <ImageBackground source={backgroundImage} resizeMode="cover">
+                <Image style={styles.image} source={pokemonImage} />
+            </ImageBackground>
             <View style={{ marginLeft: 25 }}>
                 <Text
                     style={{
@@ -46,6 +50,7 @@ export default ProfileHero;
 
 const styles = StyleSheet.create({
     wrapper: {
+        flex: 1,
         backgroundColor: "#8BBE8A",
         flexDirection: "row",
         alignItems: "center",

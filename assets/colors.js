@@ -12,10 +12,10 @@ const colors = {
     ground: "#DD7748",
     ice: "#61CEC0",
     normal: "#417D9A",
-    poison: '#A552CC',
-    psychic: '#EA5D60',
-    rock: '#BAAB82',
-    steel:'#417D9A',
+    poison: "#A552CC",
+    psychic: "#EA5D60",
+    rock: "#BAAB82",
+    steel: "#417D9A",
     water: "#4A90DA",
 };
 
@@ -33,10 +33,10 @@ const backgroundColors = {
     ground: "#F78551",
     ice: "#81D7DF",
     normal: "#B5B9C4",
-    poison: '#9F6E97',
-    psychic: '#FF6568',
-    rock: '#D4C294',
-    steel:'#4C91B2',
+    poison: "#9F6E97",
+    psychic: "#FF6568",
+    rock: "#D4C294",
+    steel: "#4C91B2",
     water: "#58ABF6",
 };
 
@@ -44,7 +44,7 @@ const textColor = {
     white: "#FFFFFF",
     black: "#17171B",
     grey: "#747476",
-    number: 'rgba(23, 23, 27, 0.6)',
+    number: "rgba(23, 23, 27, 0.6)",
 };
 
 const customColor = {
