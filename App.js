@@ -44,16 +44,14 @@ export default function App() {
     }
 
     return (
-        <>
-            {/* <SafeAreaView style = {{ flex:1 }}> */}
-            <View onLayout={onLayoutRootView}>
+        <SafeAreaView style = {{ flex:1 }}> 
+            <View style = {{ flex:1 }} onLayout={onLayoutRootView}>
                 <HomeScreen />
                 {/* <Text style = {{ color: textColor.black }} > Pokèdex </Text>
-            <Text> Developed by: Christos & Carl </Text> */}
+                <Text> Developed by: Christos & Carl </Text> */}
                 <StatusBar style="auto" />
             </View>
-        </>
-        /*  </SafeAreaView> */
+        </SafeAreaView> 
     );
 }
 

@@ -1,20 +1,15 @@
 import React from 'react'
-import { StyleSheet, View, TextInput } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import { TextInput } from 'react-native-gesture-handler'
 import { customColor } from '../assets/colors'
-import commonStyles from '../src/styles/commonStyles'
 
 const Input = ({ ...prop }) => {
   return (
     <View>
-      <TextInput style = { styles.input } { ...prop } />
+      <TextInput { ...prop } />
     </View>
   )
 }
 
 export default Input
 
-const styles = StyleSheet.create({
-    input: {
-        backgroundColor: customColor.input,
-    }
-})
