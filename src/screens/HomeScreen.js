@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, FlatList } from "react-native";
+import { StyleSheet, Text, View, ImageBackground, FlatList, Image } from "react-native";
 import React from "react";
 import { height } from "../../assets/constants";
 import Input from "../../components/Input";
@@ -6,7 +6,7 @@ import Input from "../../components/Input";
 import Pokeball_main_gradient from "../../assets/images/Pokeball_main_gradient.png";
 import commonStyles from "../styles/commonStyles.js";
 import { backgroundColors, customColor, textColor } from "../../assets/colors";
-import { Generation, Sort, Filter, Search } from '../components/iconSet'
+import { Generation, Sort, Filter, Search,  } from '../components/iconSet'
 import Icons from "../components/Icons";
 import Card from "../../components/Card";
 
@@ -40,7 +40,8 @@ const HomeScreen = () => {
                         </Text>
                     <View style = { styles.searchContainer } >
                         <Icons>
-                            <Search color = { textColor.grey } />
+                            {/* <Search color = { textColor.grey } /> */}
+                        <Image source = {require('../../assets/Icons/navigation/search__icon__png.png')} />
                         </Icons>
                         <Input 
                         placeholderTextColor={textColor.grey} 
