@@ -36,7 +36,7 @@ const textColor = {
     white: "#FFFFFF",
     black: "#17171B",
     grey: "#747476",
-    number: "#17171B",
+    number: "#rgba(23, 23, 27, 0.6)",
 };
 
 const customColor = {
