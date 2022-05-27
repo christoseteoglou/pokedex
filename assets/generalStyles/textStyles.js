@@ -34,6 +34,7 @@ const pokemonName = {
     fontFamily: fontFamilyInBold,
     fontSize: 26,
     color: textColor.black,
+    textTransform: 'capitalize'
 };
 
 const filterTitle = {

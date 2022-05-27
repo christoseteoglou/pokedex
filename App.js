@@ -5,8 +5,8 @@ import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import { SafeAreaView } from "react-native";
-import ProfileScreen from "./src/screens/ProfileScreen.jsx";
-//import HomeScreen from "./src/screens/HomeScreen.js";
+//import ProfileScreen from "./src/screens/ProfileScreen.jsx";
+import HomeScreen from "./src/screens/HomeScreen.js";
 
 const customFonts = {
     "SFProDisplay-Bold": require("./assets/fonts/SFProDisplay-Bold.otf"),
@@ -44,7 +44,7 @@ export default function App() {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-                <ProfileScreen />
+                <HomeScreen />
                 {/* <Text style = {{ color: textColor.black }} > Pokèdex </Text>
                 <Text> Developed by: Christos & Carl </Text> */}
                 <StatusBar style="auto" />

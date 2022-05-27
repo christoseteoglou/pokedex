@@ -16,9 +16,18 @@ import { backgroundColors, customColor, textColor } from "../../assets/colors";
 import { Generation, Sort, Filter, Search } from "../components/iconSet";
 import Icons from "../components/Icons";
 import Card from "../components/Card";
+import useFetch from "../components/useFetch";
 
 const HomeScreen = () => {
     const pokemons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+    const [{data, loading, error}] = useFetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20')
+
+    
+    if (data) console.log('data motherfuckers', data.results[0].name)
+    if (loading) console.log('Loading Motherfuckerz')
+    if (error) console.log('error motherfuckerz')
+
     return (
         <>
             <ImageBackground
@@ -71,12 +80,13 @@ const HomeScreen = () => {
                     flex: 3,
                 }}
             >
-                <FlatList
+                {data && <FlatList
                     contentContainerStyle={{ paddingBottom: 20 }}
                     showsVerticalScrollIndicator={false}
-                    data={pokemons}
-                    renderItem={({ item }) => <Card item={item} />}
-                />
+                    data={data.results}
+                    renderItem={({ item }) => <Card key={item.name} item={item} />}
+                />}
+                
             </View>
         </>
     );
