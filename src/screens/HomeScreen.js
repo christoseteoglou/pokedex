@@ -17,33 +17,37 @@ import { Generation, Sort, Filter, Search } from "../components/iconSet";
 import Icons from "../components/Icons";
 import Card from "../components/Card";
 import useFetch from "../components/useFetch";
+import { ActivityIndicator } from "react-native";
 
 const HomeScreen = () => {
     /* const pokemons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; */
-    
-    const [{data, loading, error}, doFetch ] = useFetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=10');
+
+    const [{ data, loading, error }, doFetch] = useFetch(
+        "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10"
+    );
     const [allPokemon, setAllPokemon] = useState([]);
 
     const renderLoader = () => {
         return (
             <View>
-                <Text>Loading motherfuckerzzz...</Text>
+                <ActivityIndicator size={"large"} color="#58ABF6" />
             </View>
-        )
-    }
+        );
+    };
 
     const loadMoreItems = async () => {
-        await doFetch(data.next)
-    }
+        setTimeout(async () => {
+            await doFetch(data.next);
+        }, 1000);
+    };
 
     useEffect(() => {
-        data && setAllPokemon((prev) => [...prev, ...data.results])
-    }, [data])
-
+        data && setAllPokemon((prev) => [...prev, ...data.results]);
+    }, [data]);
 
     /* if (data) console.log('data motherfuckers', data.results[0].name)*/
-    if (loading) console.log('Loading')
-    if (error) console.log('error')
+    if (loading) console.log("Loading");
+    if (error) console.log("error");
 
     return (
         <>
@@ -97,17 +101,18 @@ const HomeScreen = () => {
                     flex: 3,
                 }}
             >
-                {allPokemon && <FlatList
-                    contentContainerStyle={{ paddingBottom: 20 }}
-                    showsVerticalScrollIndicator={false}
-                    data={allPokemon}
-                    keyExtractor={( item ) => item.name}
-                    renderItem={({ item }) => <Card item={item} />}
-                    ListFooterComponent={renderLoader}
-                    onEndReached={loadMoreItems}
-                    onEndReachedThreshold={0}
-                />}
-                
+                {allPokemon && (
+                    <FlatList
+                        contentContainerStyle={{ paddingBottom: 20 }}
+                        showsVerticalScrollIndicator={false}
+                        data={allPokemon}
+                        keyExtractor={(item) => item.name}
+                        renderItem={({ item }) => <Card item={item} />}
+                        ListFooterComponent={renderLoader}
+                        onEndReached={loadMoreItems}
+                        onEndReachedThreshold={0}
+                    />
+                )}
             </View>
         </>
     );
