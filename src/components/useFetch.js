@@ -24,8 +24,14 @@ const useFetch = (initUrl) => {
     }, [url])
 
     return {data, loading, error}; */
+    
+
+
 
     useEffect(() => {
+        
+        let didCancel = false;
+        
         const fetchData = async () => {
             setError(false)
             setLoading(true)
@@ -33,18 +39,30 @@ const useFetch = (initUrl) => {
             try {
                 const result = await axios.get(url)
 
-                setData(result.data)
+                if (!didCancel) {
+                    setData(result.data)
+                }
+
+
             } catch (error) {
-                setError(true)
-                console.log(error.message)
+                if (!didCancel) {
+                    setError(true)
+                    console.log(error.message)
+                }
             }
             setLoading(false)
         }
 
         fetchData()
+
+        return () => {
+            didCancel = true;
+        };
+
     }, [url])
 
-    return [{ data, loading, error }]
+
+    return [{ data, loading, error }, setUrl]
 }
 
 export default useFetch

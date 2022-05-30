@@ -2,7 +2,7 @@ import { StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 
 
-import { Grass, Normal, Fire, Dragon,Poison, Bug, Water, Flying, Dark } from '../components/iconSet'
+import { Grass, Normal, Fire, Dragon,Poison, Bug, Water, Flying, Dark, Electric, Fairy, Fighting, Ghost, Ground, Rock } from '../components/iconSet'
 import { textColor } from '../../assets/colors'
 
 
@@ -33,6 +33,24 @@ const Icons = ({ children, onPress, name, style, width, height}) => {
         break;
         case 'normal':
           RenderIcon = Normal;
+          break;
+        case 'electric':
+          RenderIcon = Electric;
+          break;
+        case 'fairy':
+        RenderIcon = Fairy;
+        break;
+        case 'fighting':
+        RenderIcon = Fighting;
+        break;
+        case 'ghost':
+        RenderIcon = Ghost;
+        break;
+        case 'ground':
+        RenderIcon = Ground;
+        break;
+        case 'rock':
+          RenderIcon = Rock;
           break;
     default:
       RenderIcon = Dark;

@@ -13,16 +13,12 @@ const Card = ({ item }) => {
     const [{data, loading, error}] = useFetch(item.url)
 
     
-    if (data) console.log('data motherfuckers', data)
-    if (loading) console.log('Loading Motherfuckerz')
-    if (error) console.log('error motherfuckerz')
+    /* if (data) console.log('data motherfuckers', data) */
+    if (loading) console.log('Loading')
+    if (error) console.log('error')
 
     let type = data? data.types[0].type.name: "grass";
-
-    /* if (item > 3) {
-        type = "fire";
-    } */
-
+   
     return (
         <View
             style={{ ...styles.card, backgroundColor: backgroundColors[type] }}
@@ -31,7 +27,7 @@ const Card = ({ item }) => {
             {data &&
             <>
               <View>
-                <Text style={commonStyles.number}>#00{data.id} </Text>
+                <Text style={commonStyles.number}> {data.id.toString().length == 1 ? `#00${data.id}` : data.id.toString().length == 2 ? `#0${data.id.toString()}` : `#${data.id}` }  </Text>
                 <Text style={{...textStyles.pokemonName, color:textColor.white  }}> {data.name} </Text>
                 <View style={commonStyles.row}>
                     {data.types.map(item => <Tag key={item.type.name} type={item.type.name} />  )}
@@ -61,7 +57,7 @@ export default Card;
 
 const styles = StyleSheet.create({
     card: {
-        marginVertical: 12,
+        marginVertical: 15,
         padding: 15,
         borderRadius: 10,
         flexDirection: "row",
