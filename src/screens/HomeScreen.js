@@ -19,7 +19,7 @@ import Card from "../components/Card";
 import useFetch from "../components/useFetch";
 import { ActivityIndicator } from "react-native";
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
     /* const pokemons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; */
 
     const [{ data, loading, error }, doFetch] = useFetch(
@@ -30,15 +30,13 @@ const HomeScreen = ({ navigation }) => {
     const renderLoader = () => {
         return (
             <View>
-                <ActivityIndicator size={"large"} color="#58ABF6" />
+                <ActivityIndicator />
             </View>
         );
     };
 
     const loadMoreItems = async () => {
-        setTimeout(async () => {
-            await doFetch(data.next);
-        }, 1000);
+        await doFetch(data.next);
     };
 
     useEffect(() => {
@@ -61,7 +59,7 @@ const HomeScreen = ({ navigation }) => {
                         style={{
                             ...commonStyles.row,
                             justifyContent: "flex-end",
-                            marginVertical: 30,
+                            marginVertical: 10,
                         }}
                     >
                         <Icons>
@@ -97,7 +95,7 @@ const HomeScreen = ({ navigation }) => {
                 style={{
                     ...commonStyles.container,
                     paddingBottom: 0,
-                    marginTop: 30,
+                    marginTop: 10,
                     flex: 3,
                 }}
             >
@@ -107,9 +105,7 @@ const HomeScreen = ({ navigation }) => {
                         showsVerticalScrollIndicator={false}
                         data={allPokemon}
                         keyExtractor={(item) => item.name}
-                        renderItem={({ item }) => (
-                            <Card item={item} navigation={navigation} />
-                        )}
+                        renderItem={({ item }) => <Card item={item} />}
                         ListFooterComponent={renderLoader}
                         onEndReached={loadMoreItems}
                         onEndReachedThreshold={0}
@@ -125,7 +121,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
     searchContainer: {
         ...commonStyles.row,
-        marginVertical: 30,
+        marginVertical: 15,
         backgroundColor: customColor.input,
         borderRadius: 10,
         paddingLeft: 15,
@@ -137,7 +133,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         marginTop: "10%",
         justifyContent: "flex-end",
-        backgroundColor: "red",
     },
     input: {
         backgroundColor: customColor.input,
