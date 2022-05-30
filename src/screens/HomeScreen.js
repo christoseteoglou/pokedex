@@ -19,7 +19,7 @@ import Card from "../components/Card";
 import useFetch from "../components/useFetch";
 import { ActivityIndicator } from "react-native";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     /* const pokemons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; */
 
     const [{ data, loading, error }, doFetch] = useFetch(
@@ -107,7 +107,9 @@ const HomeScreen = () => {
                         showsVerticalScrollIndicator={false}
                         data={allPokemon}
                         keyExtractor={(item) => item.name}
-                        renderItem={({ item }) => <Card item={item} />}
+                        renderItem={({ item }) => (
+                            <Card item={item} navigation={navigation} />
+                        )}
                         ListFooterComponent={renderLoader}
                         onEndReached={loadMoreItems}
                         onEndReachedThreshold={0}

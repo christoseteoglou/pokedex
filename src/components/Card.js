@@ -5,51 +5,83 @@ import commonStyles from "../styles/commonStyles";
 import Tag from "./Tag";
 import Pokeball_card from "../../assets/images/Pokeball_card.png";
 import useFetch from "./useFetch";
-import * as textStyles from '../../assets/generalStyles/textStyles'
+import * as textStyles from "../../assets/generalStyles/textStyles";
 import { textColor } from "../../assets/colors";
+import { Pressable } from "react-native";
 
-const Card = ({ item }) => {
+const Card = ({ item, navigation }) => {
     /* console.warn({ item }) */
-    const [{data, loading, error}] = useFetch(item.url)
+    const [{ data, loading, error }] = useFetch(item.url);
 
-    
     /* if (data) console.log('data motherfuckers', data) */
-    if (loading) console.log('Loading')
-    if (error) console.log('error')
+    if (loading) console.log("Loading");
+    if (error) console.log("error");
 
-    let type = data? data.types[0].type.name: "grass";
-   
+    let type = data ? data.types[0].type.name : "grass";
+
     return (
-        <View
-            style={{ ...styles.card, backgroundColor: backgroundColors[type] }}
-
-        >
-            {data &&
-            <>
-              <View>
-                <Text style={commonStyles.number}> {data.id.toString().length == 1 ? `#00${data.id}` : data.id.toString().length == 2 ? `#0${data.id.toString()}` : `#${data.id}` }  </Text>
-                <Text style={{...textStyles.pokemonName, color:textColor.white  }}> {data.name} </Text>
-                <View style={commonStyles.row}>
-                    {data.types.map(item => <Tag key={item.type.name} type={item.type.name} />  )}
-                </View>
-            </View>
-            <View style={styles.imageContainer}>
-                <ImageBackground
-                    resizeMode="contain"
-                    source={Pokeball_card}
-                    style={styles.imageBackground}
-                >
-                    <Image
-                        style={styles.image}
-                        source={{
-                            uri: data.sprites.other['official-artwork'].front_default,
-                        }}
-                    />
-                </ImageBackground>
-            </View>
-            </>
+        <Pressable
+            onPress={() =>
+                navigation.navigate("Profile", {
+                    data: data,
+                })
             }
-        </View>
+        >
+            <View
+                style={{
+                    ...styles.card,
+                    backgroundColor: backgroundColors[type],
+                }}
+            >
+                {data && (
+                    <>
+                        <View>
+                            <Text style={commonStyles.number}>
+                                {" "}
+                                {data.id.toString().length == 1
+                                    ? `#00${data.id}`
+                                    : data.id.toString().length == 2
+                                    ? `#0${data.id.toString()}`
+                                    : `#${data.id}`}{" "}
+                            </Text>
+                            <Text
+                                style={{
+                                    ...textStyles.pokemonName,
+                                    color: textColor.white,
+                                }}
+                            >
+                                {" "}
+                                {data.name}{" "}
+                            </Text>
+                            <View style={commonStyles.row}>
+                                {data.types.map((item) => (
+                                    <Tag
+                                        key={item.type.name}
+                                        type={item.type.name}
+                                    />
+                                ))}
+                            </View>
+                        </View>
+                        <View style={styles.imageContainer}>
+                            <ImageBackground
+                                resizeMode="contain"
+                                source={Pokeball_card}
+                                style={styles.imageBackground}
+                            >
+                                <Image
+                                    style={styles.image}
+                                    source={{
+                                        uri: data.sprites.other[
+                                            "official-artwork"
+                                        ].front_default,
+                                    }}
+                                />
+                            </ImageBackground>
+                        </View>
+                    </>
+                )}
+            </View>
+        </Pressable>
     );
 };
 

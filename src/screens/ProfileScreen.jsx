@@ -4,6 +4,7 @@ import { StyleSheet, View, Text } from "react-native";
 //Styles
 import * as textStyles from "../../assets/generalStyles/textStyles";
 import { textColor, colors } from "../../assets/colors";
+import { backgroundColors } from "../../assets/colors";
 
 // Components
 import ProfileHero from "../components/ProfileHero";
@@ -12,18 +13,41 @@ import StatsData from "../components/StatsData";
 import ProfileTabNavigation from "../components/ProfileTabNavigation";
 import EvolutionData from "../components/EvolutionData";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ route }) => {
+    const { data } = route.params;
+    console.log("in Profile", data);
+
     const [activeTab, setActiveTab] = useState("About");
 
     function handleActiveTab(state) {
         setActiveTab(state);
     }
 
+    let type = data ? data.types[0].type.name : "grass";
+
+    const heroData = {
+        id: data.id,
+        image: data.sprites.other["official-artwork"].front_default,
+        name: data.name,
+        type: type,
+        types: [...data.types],
+    };
+
     return (
         <>
-            <ProfileHero />
-            <View style={styles.dataWrapper}>
-                <View style={styles.dataNavigation}>
+            <ProfileHero data={heroData} />
+            <View
+                style={{
+                    ...styles.dataWrapper,
+                    backgroundColor: backgroundColors[type],
+                }}
+            >
+                <View
+                    style={{
+                        ...styles.dataNavigation,
+                        backgroundColor: backgroundColors[type],
+                    }}
+                >
                     <ProfileTabNavigation
                         activeTab={activeTab}
                         handleActiveTab={handleActiveTab}
@@ -48,12 +72,10 @@ export default ProfileScreen;
 const styles = StyleSheet.create({
     dataWrapper: {
         flex: 3,
-        backgroundColor: "#8BBE8A",
     },
     dataNavigation: {
         flexDirection: "row",
         justifyContent: "space-around",
-        backgroundColor: "#8BBE8A",
         paddingTop: 10,
         paddingBottom: 10,
     },
