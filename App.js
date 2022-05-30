@@ -58,7 +58,13 @@ export default function App() {
                             header: () => null,
                         }}
                     />
-                    <Stack.Screen name="Profile" component={ProfileScreen} />
+                    <Stack.Screen
+                        name="Profile"
+                        component={ProfileScreen}
+                        options={{
+                            header: () => null,
+                        }}
+                    />
                     {/* <HomeScreen /> */}
                     {/* <Text style = {{ color: textColor.black }} > Pokèdex </Text>
                 	<Text> Developed by: Christos & Carl </Text> */}

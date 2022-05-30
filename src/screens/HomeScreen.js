@@ -61,7 +61,7 @@ const HomeScreen = ({ navigation }) => {
                         style={{
                             ...commonStyles.row,
                             justifyContent: "flex-end",
-                            marginVertical: 10,
+                            marginVertical: 30,
                         }}
                     >
                         <Icons>
@@ -97,7 +97,7 @@ const HomeScreen = ({ navigation }) => {
                 style={{
                     ...commonStyles.container,
                     paddingBottom: 0,
-                    marginTop: 10,
+                    marginTop: 30,
                     flex: 3,
                 }}
             >
@@ -125,7 +125,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
     searchContainer: {
         ...commonStyles.row,
-        marginVertical: 15,
+        marginVertical: 30,
         backgroundColor: customColor.input,
         borderRadius: 10,
         paddingLeft: 15,
@@ -137,6 +137,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         marginTop: "10%",
         justifyContent: "flex-end",
+        backgroundColor: "red",
     },
     input: {
         backgroundColor: customColor.input,
