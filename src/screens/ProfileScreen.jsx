@@ -41,7 +41,7 @@ const ProfileScreen = ({ route }) => {
           {activeTab === "About" ? (
             <AboutData aboutData={ data } />
           ) : activeTab === "Stats" ? (
-            <StatsData />
+            <StatsData statsData={ data } />
           ) : (
             <EvolutionData />
           )}

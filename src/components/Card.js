@@ -1,14 +1,15 @@
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
 import React from "react";
+import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
+import { useEffect } from "react";
 import { backgroundColors } from "../../assets/colors";
+import { textColor } from "../../assets/colors";
+import { Pressable } from "react-native";
+import * as textStyles from "../../assets/generalStyles/textStyles";
+
 import commonStyles from "../styles/commonStyles";
 import Tag from "./Tag";
 import Pokeball_card from "../../assets/images/Pokeball_card.png";
 import useFetch from "./useFetch";
-import * as textStyles from "../../assets/generalStyles/textStyles";
-import { textColor } from "../../assets/colors";
-import { useEffect } from "react";
-import { Pressable } from "react-native";
 
 const Card = ({ item, navigation }) => {
     /* console.warn({ item }) */
