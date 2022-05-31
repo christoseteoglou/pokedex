@@ -19,7 +19,7 @@ import Card from "../components/Card";
 import useFetch from "../components/useFetch";
 import { ActivityIndicator } from "react-native";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     /* const pokemons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; */
 
     const [{ data, loading, error }, doFetch] = useFetch(
@@ -62,7 +62,7 @@ const HomeScreen = () => {
                             marginVertical: 10,
                         }}
                     >
-                        <Icons>
+                        {/* <Icons>
                             <Generation color={textColor.black} />
                         </Icons>
                         <Icons>
@@ -70,7 +70,7 @@ const HomeScreen = () => {
                         </Icons>
                         <Icons>
                             <Filter style={styles.image} />
-                        </Icons>
+                        </Icons> */}
                     </View>
                     <Text style={{ ...commonStyles.heading }}>Pokédex</Text>
                     <Text style={{ ...commonStyles.subHeading }}>
@@ -105,7 +105,7 @@ const HomeScreen = () => {
                         showsVerticalScrollIndicator={false}
                         data={allPokemon}
                         keyExtractor={(item) => item.name}
-                        renderItem={({ item }) => <Card item={item} />}
+                        renderItem={({ item }) => <Card item={item} navigation={navigation}  />}
                         ListFooterComponent={renderLoader}
                         onEndReached={loadMoreItems}
                         onEndReachedThreshold={0}
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
         backgroundColor: customColor.input,
         borderRadius: 10,
         paddingLeft: 15,
-        width: 334,
+        width: 350,
         height: 60,
     },
     container: {

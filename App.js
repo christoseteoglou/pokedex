@@ -5,14 +5,20 @@ import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import { SafeAreaView } from "react-native";
-//import ProfileScreen from "./src/screens/ProfileScreen.jsx";
+import ProfileScreen from "./src/screens/ProfileScreen.jsx";
 import HomeScreen from "./src/screens/HomeScreen.js";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const customFonts = {
     "SFProDisplay-Bold": require("./assets/fonts/SFProDisplay-Bold.otf"),
     "SFProDisplay-Medium": require("./assets/fonts/SFProDisplay-Medium.otf"),
     "SFProDisplay-Regular": require("./assets/fonts/SFProDisplay-Regular.otf"),
 };
+
+
+const Stack = createNativeStackNavigator();
+
 
 export default function App() {
     const [appIsReady, setAppIsReady] = useState(false);
@@ -42,14 +48,30 @@ export default function App() {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <>
+            {/* <SafeAreaView style={{ flex: 1 }}> */}
             <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-                <HomeScreen />
-                {/* <Text style = {{ color: textColor.black }} > Pokèdex </Text>
-                <Text> Developed by: Christos & Carl </Text> */}
-                <StatusBar style="auto" />
+                <NavigationContainer>
+                    <Stack.Navigator>
+                        <Stack.Screen
+                            name='Home'
+                            component={HomeScreen}
+                            options={{
+                                header: () => null,
+                            }}
+                        />
+                        <Stack.Screen
+                            name='Profile'
+                            component={ProfileScreen}
+                            options={{
+                                header: () => null,
+                            }}
+                        />
+                    </Stack.Navigator>
+                </NavigationContainer>
             </View>
-        </SafeAreaView>
+            {/* </SafeAreaView> */}
+        </>
     );
 }
 

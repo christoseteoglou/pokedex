@@ -11,24 +11,20 @@ import { backgroundColors } from "../../assets/colors";
 import Tag from "./Tag";
 
 const ProfileHero = ({ data }) => {
-    /* data = {
-        id: data.id,
-        image: data.sprites.other["official-artwork"].front_default,
-        name: data.name,
-        type: data.types[0].type.name,
-        types: [...data.types],
-    }; */
+    
+    let type = data.types[0].type.name;
+    let image = data.sprites.other["official-artwork"].front_default;
 
     const backgroundImage = require("../../assets/images/circleFade.png");
     return (
         <View
             style={{
                 ...styles.wrapper,
-                backgroundColor: backgroundColors[data.type],
+                backgroundColor: backgroundColors[type],
             }}
         >
             <ImageBackground source={backgroundImage} resizeMode="cover">
-                <Image style={styles.image} source={{ uri: data.image }} />
+                <Image style={styles.image} source={{ uri: image }} />
             </ImageBackground>
             <View style={{ marginLeft: 25 }}>
                 <Text
