@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import React, { useState, useEffect, useRef, useMemo } from "react";
+import { StyleSheet, View } from "react-native";
 
-//Styles
-import * as textStyles from "../../assets/generalStyles/textStyles";
-import { textColor, colors } from "../../assets/colors";
+// Styles
 import { backgroundColors } from "../../assets/colors";
 
 // Components
@@ -17,6 +15,11 @@ const ProfileScreen = ({ route }) => {
     const { data } = route.params;
   let type = data.types[0].type.name;
   const [activeTab, setActiveTab] = useState("About");
+
+  const sheetRef = useRef<BottomSheet>(null);
+  const [ isOpen, setIsOpen ] = useState(true);
+  const snapPoints = useMemo(() => ["90%", '100%'], []);
+
 
   function handleActiveTab(state) {
     setActiveTab(state);
@@ -37,6 +40,7 @@ const ProfileScreen = ({ route }) => {
             handleActiveTab={handleActiveTab}
           />
         </View>
+        <BottomSheet ref={()=> sheetRef} snapPoints={snapPoints}>
         <View style={styles.dataSheet}>
           {activeTab === "About" ? (
             <AboutData aboutData={ data } />
@@ -46,6 +50,7 @@ const ProfileScreen = ({ route }) => {
             <EvolutionData />
           )}
         </View>
+        </BottomSheet>
       </View>
     </>
   );
@@ -68,8 +73,6 @@ const styles = StyleSheet.create({
   dataSheet: {
     flex: 1,
     backgroundColor: "white",
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
     paddingTop: 40,
     paddingRight: 30,
     paddingLeft: 30,

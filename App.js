@@ -1,15 +1,19 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import { StyleSheet, View } from "react-native";
-
 import { StatusBar } from "expo-status-bar";
+import { SafeAreaView } from "react-native";
+
+// Styles
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
-import { SafeAreaView } from "react-native";
+
+// Components
 import ProfileScreen from "./src/screens/ProfileScreen.jsx";
 import HomeScreen from "./src/screens/HomeScreen.js";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+// Custom Fonts
 const customFonts = {
     "SFProDisplay-Bold": require("./assets/fonts/SFProDisplay-Bold.otf"),
     "SFProDisplay-Medium": require("./assets/fonts/SFProDisplay-Medium.otf"),

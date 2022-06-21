@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
-import { useEffect } from "react";
+import { Pressable } from "react-native";
+
+// Styles
+import * as textStyles from "../../assets/generalStyles/textStyles";
+import commonStyles from "../styles/commonStyles";
 import { backgroundColors } from "../../assets/colors";
 import { textColor } from "../../assets/colors";
-import { Pressable } from "react-native";
-import * as textStyles from "../../assets/generalStyles/textStyles";
 
-import commonStyles from "../styles/commonStyles";
+// Components
 import Tag from "./Tag";
 import Pokeball_card from "../../assets/images/Pokeball_card.png";
 import useFetch from "./useFetch";
@@ -21,9 +23,6 @@ const Card = ({ item, navigation }) => {
 
     let type = data ? data.types[0].type.name : "grass";
 
-    /* if (item > 3) {
-        type = "fire";
-    } */
 
     useEffect(() => {
         return () => console.log("I'm out:)");

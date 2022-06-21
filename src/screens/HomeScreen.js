@@ -23,9 +23,11 @@ const HomeScreen = ({ navigation }) => {
     /* const pokemons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; */
 
     const [{ data, loading, error }, doFetch] = useFetch(
-        "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10"
+        "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20"
     );
     const [allPokemon, setAllPokemon] = useState([]);
+    const [input, setInput] = useState('')
+    
 
     const renderLoader = () => {
         return (
@@ -85,8 +87,8 @@ const HomeScreen = ({ navigation }) => {
                             />
                         </Icons>
                         <Input
-                            placeholderTextColor={textColor.grey}
-                            placeholder="What Pokémon are you looking for?"
+                        inputValue = { input }
+                        handleInput = { setInput }
                         />
                     </View>
                 </View>
@@ -103,9 +105,9 @@ const HomeScreen = ({ navigation }) => {
                     <FlatList
                         contentContainerStyle={{ paddingBottom: 20 }}
                         showsVerticalScrollIndicator={false}
-                        data={allPokemon}
+                        data={ allPokemon }
                         keyExtractor={(item) => item.name}
-                        renderItem={({ item }) => <Card item={item} navigation={navigation}  />}
+                        renderItem={({ item }) => item.name.includes(input) && <Card item={item} navigation={navigation} />   }
                         ListFooterComponent={renderLoader}
                         onEndReached={loadMoreItems}
                         onEndReachedThreshold={0}

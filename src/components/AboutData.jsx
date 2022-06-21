@@ -15,7 +15,7 @@ const AboutData = ({ aboutData }) => {
   return (
     <>
       {data && (
-        <ScrollView showsVerticalScrollIndicator={false} >
+        <ScrollView showsVerticalScrollIndicator={false}>
           <Text style={styles.description}>
             {data.flavor_text_entries[8].flavor_text}
           </Text>
@@ -147,26 +147,45 @@ const AboutData = ({ aboutData }) => {
               <View style={{ flex: 1 }}>
                 <Text style={styles.dataKey}>Gender</Text>
               </View>
-              <View style={{ flex: 2, flexDirection: 'row' }}>
-                <Text style={{...styles.dataValue, color: colors.water }}> { `${100 - (100 / 8 * data.gender_rate)}%`} </Text>
-                <Text style={{...styles.dataValue, color: colors.fairy }}> { `${100 / 8 * data.gender_rate} %` } </Text>
+              <View style={{ flex: 2, flexDirection: "row" }}>
+                <Text style={{ ...styles.dataValue, color: colors.water }}>
+                  {" "}
+                  {`${100 - (100 / 8) * data.gender_rate}%`}{" "}
+                </Text>
+                <Text style={{ ...styles.dataValue, color: colors.fairy }}>
+                  {" "}
+                  {`${(100 / 8) * data.gender_rate} %`}{" "}
+                </Text>
               </View>
             </View>
             <View style={styles.tableRow}>
               <View style={{ flex: 1 }}>
                 <Text style={styles.dataKey}>Egg Groups</Text>
               </View>
-              <View style={{ flex: 2}}>
-                { data.egg_groups.map(item => <Text key={item.name} style={{...styles.dataValue,  textTransform: 'capitalize' }}> { item.name } </Text> ) }
+              <View style={{ flex: 2 }}>
+                {data.egg_groups.map((item) => (
+                  <Text
+                    key={item.name}
+                    style={{ ...styles.dataValue, textTransform: "capitalize" }}
+                  >
+                    {" "}
+                    {item.name}{" "}
+                  </Text>
+                ))}
               </View>
               <View style={styles.tableRow}>
-              <View style={{ flex: 1 }}>
-                <Text style={styles.dataKey}>Egg Cycles</Text>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.dataKey}>Egg Cycles</Text>
+                </View>
+                <View style={{ flex: 2 }}>
+                  <Text style={styles.dataValue}>
+                    {" "}
+                    {`${data.hatch_counter} (${
+                      257 * (data.hatch_counter - 1)
+                    } - ${257 * data.hatch_counter} steps)`}{" "}
+                  </Text>
+                </View>
               </View>
-              <View style={{ flex: 2 }}>
-                <Text style={styles.dataValue}> {`${data.hatch_counter} (${257 * (data.hatch_counter - 1)} - ${257 * (data.hatch_counter)} steps)` }  </Text>
-              </View>
-            </View>
             </View>
           </View>
         </ScrollView>

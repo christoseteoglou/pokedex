@@ -8,23 +8,23 @@ import { backgroundColors } from "../../assets/colors";
 
 const StatsData = ({ statsData }) => {
   let type = statsData.types[0].type.name;
-
+  
   const minHp = (baseValue) => {
     return baseValue * 2 + 110;
   };
-
+  
   const maxHp = (baseValue) => {
     return baseValue * 2 + 110 + 252 / 4 + 31;
   };
-
+  
   const minStat = (baseValue) => {
     return Math.floor((baseValue * 2 + 5) * 0.9);
   };
-
+  
   const maxStat = (baseValue) => {
     return Math.floor((baseValue * 2 + 5 + 252 / 4 + 31) * 1.1);
   };
-
+  
   const totalStat = () => {
     return (
       statsData.stats[0].base_stat +
@@ -33,17 +33,17 @@ const StatsData = ({ statsData }) => {
       statsData.stats[3].base_stat +
       statsData.stats[4].base_stat +
       statsData.stats[5].base_stat
-    );
-  };
-
-  const calculateBar = (baseValue, callback) => {
-    let max = callback(baseValue);
-    let onePercent = 100 / max;
-
-    return baseValue * onePercent;
-  }
-
-  return (
+      );
+    };
+    
+    const calculateBar = (baseValue, callback) => {
+      let max = callback(baseValue);
+      let onePercent = 100 / max;
+      
+      return baseValue * onePercent;
+    }
+    
+    return (
     <>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={{ ...styles.dataTitle, color: backgroundColors[type] }}>
@@ -244,7 +244,7 @@ const StatsData = ({ statsData }) => {
 
         <Text style={styles.descriptionSmall}>
           The ranges shown on the right are for a level 100 Pokémon. Maximum
-          values are based on a beneficial nature, 252 EVs, 31 IVs; minimum
+          values are based on a beneficial nature, 255 EVs, 31 IVs; minimum
           values are based on a hindering nature, 0 EVs, 0 IVs.
         </Text>
 
@@ -253,7 +253,7 @@ const StatsData = ({ statsData }) => {
         </Text>
 
         <Text style={styles.description}>
-          The effectiveness of each type on Bulbasaur.
+          {`The effectiveness of each type on ${statsData.name}.`}
         </Text>
       </ScrollView>
     </>
